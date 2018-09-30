@@ -23,7 +23,8 @@ public class ServiceProviderMSImplementation implements ServiceProvider {
 
 	@Override
 	public Integer multiply(int a, int b) {
-		return 42;
+		return externalAPI.query(ExternalAPI.MULTIPLY_API_PORT, a, b)
+				.getValue();
 	}
 
 	@Override

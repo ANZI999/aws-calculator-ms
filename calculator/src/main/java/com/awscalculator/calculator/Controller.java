@@ -29,8 +29,10 @@ public class Controller {
 	}
 	
 	@RequestMapping(value="/multiply/{a:[\\d]+}/{b:[\\d]+}", method = RequestMethod.GET)
-	public Integer multiply(@PathVariable int a, @PathVariable int b) {
-		return serviceProvider.multiply(a, b);
+	public Response multiply(@PathVariable int a, @PathVariable int b) {
+		Response response = new Response();
+		response.setValue(serviceProvider.multiply(a, b));
+		return response;
 	}
 	
 	@RequestMapping(value="/divide/{a:[\\d]+}/{b:[\\d]+}", method = RequestMethod.GET)

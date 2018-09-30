@@ -10,6 +10,7 @@ public class ExternalAPI {
 	
 	public static final int ADD_API_PORT = 8079;
 	public static final int SUBTRACT_API_PORT = 8078;
+	public static final int MULTIPLY_API_PORT = 8077;
 	
 	public Response query(int port, int param1, int param2) {
 		final String uri = API_ROOT + port + "/" + param1 + "/" + param2;
