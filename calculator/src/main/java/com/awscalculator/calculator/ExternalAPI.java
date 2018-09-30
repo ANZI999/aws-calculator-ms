@@ -9,6 +9,7 @@ public class ExternalAPI {
 	private static final RestTemplate REST_TEMPLATE = new RestTemplate();
 	
 	public static final int ADD_API_PORT = 8079;
+	public static final int SUBTRACT_API_PORT = 8078;
 	
 	public Response query(int port, int param1, int param2) {
 		final String uri = API_ROOT + port + "/" + param1 + "/" + param2;

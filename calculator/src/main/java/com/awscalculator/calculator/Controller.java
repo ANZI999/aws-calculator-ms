@@ -22,8 +22,10 @@ public class Controller {
 	}
 	
 	@RequestMapping(value="/subtract/{a:[\\d]+}/{b:[\\d]+}", method = RequestMethod.GET)
-	public Integer subtract(@PathVariable int a, @PathVariable int b) {
-		return serviceProvider.subtract(a, b);
+	public Response subtract(@PathVariable int a, @PathVariable int b) {
+		Response response = new Response();
+		response.setValue(serviceProvider.subtract(a, b));
+		return response;
 	}
 	
 	@RequestMapping(value="/multiply/{a:[\\d]+}/{b:[\\d]+}", method = RequestMethod.GET)
