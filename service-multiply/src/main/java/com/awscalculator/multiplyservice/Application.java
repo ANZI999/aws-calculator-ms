@@ -1,4 +1,4 @@
-package com.awscalculator.subtractservice;
+package com.awscalculator.multiplyservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.awscalculator.subtractservice;
+package com.awscalculator.multiplyservice;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

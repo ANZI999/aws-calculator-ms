@@ -1,4 +1,4 @@
-package com.awscalculator.subtractservice;
+package com.awscalculator.divideservice;
 
 public class Response {
 	private int value;
