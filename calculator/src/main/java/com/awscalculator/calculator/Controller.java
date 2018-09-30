@@ -36,7 +36,9 @@ public class Controller {
 	}
 	
 	@RequestMapping(value="/divide/{a:[\\d]+}/{b:[\\d]+}", method = RequestMethod.GET)
-	public Integer divide(@PathVariable int a, @PathVariable int b) {
-		return serviceProvider.divide(a, b);
+	public Response divide(@PathVariable int a, @PathVariable int b) {
+		Response response = new Response();
+		response.setValue(serviceProvider.divide(a, b));
+		return response;
 	}
 }

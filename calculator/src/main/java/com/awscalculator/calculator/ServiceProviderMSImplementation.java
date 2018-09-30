@@ -29,7 +29,8 @@ public class ServiceProviderMSImplementation implements ServiceProvider {
 
 	@Override
 	public Integer divide(int a, int b) {
-		return 42;
+		return externalAPI.query(ExternalAPI.DIVIDE_API_PORT, a, b)
+				.getValue();
 	}
 
 }
