@@ -1,4 +1,4 @@
-exports.addHandler = function(event, context, callback) {
+exports.compute = function(event, context, callback) {
    console.log("a = " + event.a);
    console.log("b = " + event.b);
    let answer = event.a + event.b;
