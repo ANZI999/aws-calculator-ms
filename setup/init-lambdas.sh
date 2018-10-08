@@ -30,7 +30,7 @@ parent_resource_id=$(aws apigateway get-resources \
 	--output text \
 	--region $region)
 
-for endpoint in add
+for endpoint in add subtract multiply divide
 do
 	if [ "$(aws apigateway get-resources \
 		--rest-api-id $api_id \
