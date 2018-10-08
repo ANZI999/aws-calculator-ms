@@ -9,7 +9,7 @@ then
 fi
 role_arn=$(aws iam get-role --role-name $role_name --query Role.Arn --output text)
 
-api_name="CalculatorLambdaAPI"
+api_name="CalculatorLambdas"
 
 
 if [ "$(aws apigateway get-rest-apis --query "items[?name==\`$api_name\`].id" --region $region)" = "[]" ]
@@ -58,7 +58,7 @@ do
 			--region $region
 
 		cd ../services
-		zip -r add.zip add.js
+		zip -r $endpoint.zip $endpoint.js
 		aws lambda create-function \
 			--function-name $endpoint \
 			--runtime nodejs8.10 \
@@ -66,7 +66,7 @@ do
 			--handler $endpoint.compute \
 			--zip-file fileb://$endpoint.zip \
 			--region $region
-		rm add.zip
+		rm $endpoint.zip
 		cd ../setup
 
 		lambda_arn=$(aws lambda list-functions \
