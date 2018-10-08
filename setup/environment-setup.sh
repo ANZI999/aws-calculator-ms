@@ -6,19 +6,30 @@ display() {
 
 display "Update system started"
 
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get update -y
+sudo apt-get upgrade -y
 
 display "Update system finished"
 
 display "Ensure zip has been installed"
 
-if ! zip >/dev/null; then
+if ! hash zip 2>/dev/null; then
 	display "Installing zip"
 	sudo apt install zip -y
 fi
 
 display "Zip is installed"
+
+display "Ensure gradle has been installed"
+
+if ! gradle >/dev/null; then
+	display "Installing gradle"
+	yes "" | sudo add-apt-repository ppa:cwchien/gradle
+	sudo apt-get update
+	sudo apt install gradle -y
+fi
+
+display "Gradle is installed"
 
 display "Ensure aws cli has been installed"
 
