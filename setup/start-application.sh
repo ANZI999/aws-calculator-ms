@@ -125,4 +125,6 @@ aws apigateway create-deployment \
 	--stage-name prod \
 	--region $region
 
-export LAMBDA_API_URL="https://$api_id.execute-api.$region.amazonaws.com/prod"
+LAMBDA_API_URL="https://$api_id.execute-api.$region.amazonaws.com/prod"
+cd ../calculator
+gradle bootRun -Pargs=$LAMBDA_API_URL --quiet &
