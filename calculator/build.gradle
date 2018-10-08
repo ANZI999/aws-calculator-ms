@@ -18,6 +18,10 @@ bootJar {
     version =  '0.1.0'
 }
 
+bootRun {
+	args project.args.split('\\s+')
+}
+
 repositories {
     mavenCentral()
 }

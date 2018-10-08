@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 	
-	@Autowired @Qualifier("MicroService")
+	@Autowired @Qualifier("Lambda")
 	private ServiceProvider serviceProvider;
 	
 	@RequestMapping(value="/add/{a:[\\d]+}/{b:[\\d]+}", method = RequestMethod.GET)

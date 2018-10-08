@@ -1,21 +1,35 @@
 package com.awscalculator.calculator;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 @Component
 public class ExternalAPI {
-	private static final String API_ROOT = "http://localhost:";
 	private static final RestTemplate REST_TEMPLATE = new RestTemplate();
 	
-	public static final int ADD_API_PORT = 8079;
-	public static final int SUBTRACT_API_PORT = 8078;
-	public static final int MULTIPLY_API_PORT = 8077;
-	public static final int DIVIDE_API_PORT = 8076;
+	public static final String ADD = "add";
+	public static final String SUBTRACT = "subtract";
+	public static final String MULTIPLY = "multiply";
+	public static final String DIVIDE = "divide";
 	
-	public Response query(int port, int param1, int param2) {
-		final String uri = API_ROOT + port + "/" + param1 + "/" + param2;
+	private static String apiRoot;// = "https://6qs53q76s7.execute-api.eu-central-1.amazonaws.com/prod/";
+	
+	public static void setAPIRoot(String url) {
+		apiRoot = url;
+	}
+	
+	public Response query(String action, int a, int b) {
+		final String url = apiRoot + "/" + action;
 		
-		return REST_TEMPLATE.getForObject(uri, Response.class);
+		Request request = new Request();
+		request.setA(a);
+		request.setB(b);
+		
+		return REST_TEMPLATE.postForObject(url, request, Response.class);
 	}
 }
