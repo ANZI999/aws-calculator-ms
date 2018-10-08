@@ -3,5 +3,5 @@ exports.compute = function(event, context, callback) {
    console.log("b = " + event.b);
    let answer = event.a + event.b;
    console.log("answer = " + answer);
-   callback(null, answer);
+   callback(null, { "value" : answer });
 }

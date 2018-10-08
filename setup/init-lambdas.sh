@@ -79,8 +79,23 @@ do
 			--http-method POST \
 			--type AWS \
 			--integration-http-method POST \
-			--uri arn:aws:apigateway:$region:lambda:path/$(date +'%Y-%m-%d')/functions/$lambda_arn/invocations \
-			--request-templates '{"application/x-www-form-urlencoded":"{\"body\": $input.json(\"$\")}"}' \
+			--uri arn:aws:apigateway:$region:lambda:path/2015-03-31/functions/$lambda_arn/invocations \
+			--region $region
+
+		aws apigateway put-method-response \
+			--rest-api-id $api_id \
+			--resource-id $resource_id \
+			--http-method POST \
+			--status-code 200 \
+			--response-models "{}" \
+			--region $region
+
+	 	aws apigateway put-integration-response \
+			--rest-api-id $api_id \
+			--resource-id $resource_id \
+			--http-method POST \
+			--status-code 200 \
+			--selection-pattern ".*" \
 			--region $region
 
 		api_arn=$(echo $lambda_arn | sed \
