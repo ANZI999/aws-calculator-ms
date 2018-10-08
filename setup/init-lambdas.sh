@@ -124,6 +124,5 @@ aws apigateway create-deployment \
 	--rest-api-id $api_id \
 	--stage-name prod \
 	--region $region
-lambda_api_url="https://$api_id.execute-api.$region.amazonaws.com/prod"
 
-echo "The url for the api is: $lambda_api_url/add"
+export LAMBDA_API_URL="https://$api_id.execute-api.$region.amazonaws.com/prod"

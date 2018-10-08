@@ -1,2 +1,2 @@
 cd ../calculator
-eval gradle bootRun
+eval gradle bootRun -Pargs=$LAMBDA_API_URL
