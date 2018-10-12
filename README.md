@@ -7,7 +7,7 @@ Also you should write down the displayed "Access key ID" and "Secret Access key"
 have to input them in the future.
 
 Once EC2 instance is running ssh yourself into it and clone current repository.
-Then go into the folder by running "cd aws-lambda-base-calculator"
+Then go into the folder by running "cd aws-lambda-based-calculator"
 
 The last step is running "sh start.sh" which creates the lambda functions and starts the application
 server. If asked input the region where the instance is running and also the user credentials to access
