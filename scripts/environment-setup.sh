@@ -20,6 +20,16 @@ fi
 
 display "Zip is installed"
 
+
+display "Ensure Java has been installed"
+
+if ! java >/dev/null; then
+	display "Installing java"
+	sudo apt install openjdk-11-jre-headless -y
+fi
+
+display "Java is installed"
+
 display "Ensure gradle has been installed"
 
 if ! gradle >/dev/null; then
