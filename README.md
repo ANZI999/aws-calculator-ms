@@ -16,10 +16,10 @@ aws.
 To use the application copy from EC2 instance list "Public DNS" of the instance. 
 And go to the address 
 {publicDNS}:8080/{operation}/number1/number2
-List of operations:
-add
-subtract
-multiply
+List of operations:<br />
+add<br />
+subtract<br />
+multiply<br />
 divide
 
 If you want to reset everything run "sh stop.sh" that will delete all the created resources 
