@@ -46,8 +46,14 @@ display "Configure aws cli"
 aws sts get-caller-identity --output text
 if [ "$?" -ne "0" ]; then
 	display "AWS needs configuring."
-	display "For this step you need to have created a user with 'AdministratorAccess' and 'AmazonS3FullAccess'."
-	aws configure
+	display "For this step you need to have created a user with 'AdministratorAccess'."
+
+	read -p "AWS Access Key ID: " access_key_id
+	read -p "AWS Secret Access Key: " access_key
+
+	aws configure set aws_access_key_id $access_key_id
+	aws configure set aws_secret_access_key $access_key
+	aws configure set default.region $REGION
 fi
 
 display "Aws cli is configured"
