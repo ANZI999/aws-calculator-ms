@@ -15,7 +15,7 @@ aws.
 
 To use the application copy from EC2 instance list "Public DNS" of the instance. 
 And go to the address 
-{publicDNS}:8080/{operation}/number1/number2
+{publicDNS}:8080/{operation}/number1/number2<br />
 List of operations:<br />
 add<br />
 subtract<br />
